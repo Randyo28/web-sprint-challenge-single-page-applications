@@ -1,11 +1,12 @@
 import React from "react";
+import './App.css';
+import Header from './components/Header'
 
 const App = () => {
   return (
-    <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </>
+    <div className='app'>
+    <Header/>
+    </div>
   );
 };
 export default App;
