@@ -34,13 +34,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
     React's useRouteMatch hook is used to grab the current url of the page and be able to call it within javascript as too not keep repeating the whole url link. 
 
-1. How would you explain form validation to someone who has never programmed before?
+2. How would you explain form validation to someone who has never programmed before?
 
-Form validation is to ensure that a user is meeting the requirements for filling out a form.
+Form validation is to ensure that a user is meeting the requirements for filling out a form. If not correct a error message will appear asking user to fill out requirements to submit.
 
-1. In 1-2 sentences, define end to end testing.
+3. In 1-2 sentences, define end to end testing.
 
 End to end testing is when a developer is writing tests for the entire application that they are working on. It would test out the entire user experience to see if everything is working correctly.
+
+
 ## Instructions
 
 ### Task 1: Project Set Up

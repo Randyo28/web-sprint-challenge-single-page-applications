@@ -4,7 +4,7 @@
 
 /*Start of Header component */
 .header {
-  background-color: #282c34;
+  background-color: #e87c0c;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,8 +27,9 @@
   padding: 1rem;
   margin-left: 1rem;
   text-decoration: none;
-  background:#fff;
+  background:#efe7e7;
   color: black;
+  border-radius: 10%;
 }
 /*End of Header component */
 
@@ -44,10 +45,11 @@
 
 .pizza-btn{
   position: relative;
-  bottom: 15rem;
+  bottom: 20rem;
   padding: 1rem 1.5rem;
-  background-color: #fff;
-  color: #000;
+  background-color: #f93663;
+  color: #fff;
+  font-weight: 800;
   text-decoration: none;
   border-radius: 15%;
 }
