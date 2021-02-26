@@ -1,8 +1,23 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
 import pizza from '../Assets/Pizza.jpg';
 
-const Form = () => {
+const Form = (props) => {
+
+    const {values, change, submit}= props;
+
+    const onChange = (e) => {
+        const {name, value, type, checked} = e.target
+
+        const valueSet = type === 'checkbox' ? checked : value
+
+        change(name, valueSet)
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+        submit()
+    }
+
     return (
         <>
             <div className="form-container">
@@ -15,38 +30,39 @@ const Form = () => {
                     </div>
                 </header>
                 <section className="form-section">
-                   <form className='form'>
+                   <form onSubmit={onSubmit} className='form'>
                        <h2>
                            Build Your Own Pizza
                        </h2>
                        <label>Name:
-                           <input type='text' />
+                           <input name='name' value={values.name} onChange={onChange}  type='text' />
                        </label>
                        <label> Size of Pizza:
-                           <select>
-                               <option>Small</option>
-                               <option>Medium</option>
-                               <option>Large</option>
+                           <select name="select" value={values.select} onChange={onChange}>
+                               <option value=''>--Select-Pizza-Size--</option>
+                               <option value='small'>Small</option>
+                               <option value='medium'>Medium</option>
+                               <option value='large'>Large</option>
                            </select>
                        </label>
                        <label> Choice of Toppings:
                             <div className="choice-toppings">
                             <label> Pepperoni
-                                <input type="checkbox" />
+                                <input onChange={onChange} name="pepperoni" type="checkbox" checked={values.pepperoni} />
                             </label>
                             <label> Chicken
-                                <input type="checkbox" />
+                                <input onChange={onChange} name='chicken' type="checkbox" checked={values.chicken}/>
                             </label>
                             <label> Sausage
-                                <input type="checkbox" />
+                                <input onChange={onChange} name='sausage' type="checkbox" checked={values.sausage}/>
                             </label>
                             <label> Pineapple
-                                <input type="checkbox" />
+                                <input onChange={onChange} name='pineapple' type="checkbox"  checked={values.pineapple} />
                             </label>
                            </div>
                        </label>
                        <label>Special Instructions:
-                           <input type='text' />
+                           <input value={values.special} onChange={onChange} name='special' type='text' />
                        </label>
                        <button className="form-btn">
                            Add To Order

@@ -1,5 +1,4 @@
 import React from 'react';
-// import Header from './Header';
 import pizza from '../Assets/Pizza.jpg';
 import { Link } from 'react-router-dom';
 
