@@ -104,5 +104,11 @@ select{
   padding: 0.4rem;
 }
 
+.errors {
+  margin: 8px;
+  font-size: 0.7em;
+  color: red;
+}
+
 
 /*End of Form component */

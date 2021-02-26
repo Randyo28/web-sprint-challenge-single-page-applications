@@ -5,7 +5,9 @@ import Header from './components/Header';
 import Form from './components/Form';
 import PizzaOrder from './components/PizzaOrder';
 import { Route, Switch } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
+import * as yup from 'yup';
+import formSchema from './validation/formSchema';
 
 const App = () => {
 
@@ -21,12 +23,35 @@ const App = () => {
     special: '',
   }
 
-  
+  const initialFormErrors = {
+    name: '',
+    select: '',
+  }
+
+  //*Initial formVales which will be changed
   const [formValues, setFormValues] = useState(initialFormValues)
 
+  //*New Pizza order startes empty and will be added
   const [newPizza, setNewPizza] = useState(pizza)
 
+  //*Initial Error messages
+  const [errors, setErrors] = useState(initialFormErrors)
+
+  //* Button is disabled at default until fields are filled out
+  const [disabled, setDisabled] = useState(true)
+
   const inputChangeValue = (name, value) => {
+
+    yup.reach(formSchema, name)
+      .validate(value)
+      .then(() => {
+        // happy path
+        setErrors({...errors, [name]: ''})
+      })
+      .catch(err => {
+        //bad path
+        setErrors({...errors, [name]: err.errors[0]})
+      })
     
     setFormValues({...formValues, [name]: value})
   }
@@ -75,6 +100,10 @@ const App = () => {
     setFormValues(initialFormValues)
   }
 
+  useEffect(() => {
+    formSchema.isValid(formValues).then(valid => setDisabled(!valid))
+  }, [formValues])
+
 
   return (
     <div className='app'>
@@ -86,7 +115,9 @@ const App = () => {
         <Route path='/pizza'>
           <Form values={formValues} 
           change={inputChangeValue}
-          submit={formSubmit}/>
+          submit={formSubmit}
+          disabled={disabled}
+          errors={errors}/>
         </Route>
         <Route path='/'>
         <Home/>

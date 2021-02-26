@@ -3,7 +3,7 @@ import pizza from '../Assets/Pizza.jpg';
 
 const Form = (props) => {
 
-    const {values, change, submit}= props;
+    const {values, change, submit, disabled, errors}= props;
 
     const onChange = (e) => {
         const {name, value, type, checked} = e.target
@@ -64,9 +64,14 @@ const Form = (props) => {
                        <label>Special Instructions:
                            <input value={values.special} onChange={onChange} name='special' type='text' />
                        </label>
-                       <button className="form-btn">
+                       <button disabled={disabled} className="form-btn">
                            Add To Order
                        </button>
+                       <div className='errors'>
+                            <div>{errors.name}</div>
+                            <div>{errors.select}</div>
+                            <div>{errors.special}</div>
+                        </div>
                    </form> 
                 </section>
             </div>
