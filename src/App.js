@@ -76,7 +76,7 @@ const App = () => {
       axios
       .get('https://reqres.in/api/users?page=1')
       .then(res => {
-        console.log(res.data)
+        console.log(res.data.data)
         setNewPizza(res.data.data)
       })
       .catch(err => {
@@ -117,7 +117,8 @@ const App = () => {
           change={inputChangeValue}
           submit={formSubmit}
           disabled={disabled}
-          errors={errors}/>
+          errors={errors}
+              />
         </Route>
         <Route path='/'>
         <Home/>

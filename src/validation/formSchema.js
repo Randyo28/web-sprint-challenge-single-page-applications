@@ -9,6 +9,9 @@ const formSchema = yup.object().shape({
     select: yup.string()
         .oneOf(['small', 'medium', 'large'], 'Size is required'),
 
+    special: yup.string()
+    .trim(),
+
     pepperoni: yup.boolean(),
     chicken: yup.boolean(),
     sausage: yup.boolean(),

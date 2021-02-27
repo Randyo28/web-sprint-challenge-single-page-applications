@@ -11,6 +11,7 @@
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 12vh;
 }
 
 .header h1{
@@ -19,7 +20,7 @@
 
 .header-btnDiv{
   position: relative;
-  left: 29rem;
+  left: 48rem;
   padding: 1rem;
 }
 
@@ -30,7 +31,15 @@
   background:#efe7e7;
   color: black;
   border-radius: 10%;
+  transition: all 0.6s ease-in-out;
 }
+
+.header-btn:hover{
+  color:white;
+  background: black;
+  transition: all 0.6s ease-in-out;
+}
+
 /*End of Header component */
 
 /*Start of Home component */
@@ -112,5 +121,13 @@ select{
   color: red;
 }
 
-
 /*End of Form component */
+
+/*Start of pizza-order component */
+.congrats{
+  position: relative;
+  bottom: 25rem;
+  color:#fff;
+  font-size: 4rem;
+  text-shadow: 5px 5px 2px black;
+}

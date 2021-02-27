@@ -1,5 +1,6 @@
 import React from 'react';
 import pizza from '../Assets/Pizza.jpg';
+import { Link } from 'react-router-dom'
 
 const Form = (props) => {
 
@@ -34,6 +35,11 @@ const Form = (props) => {
                        <h2>
                            Build Your Own Pizza
                        </h2>
+                       <div className='errors'>
+                            <div>{errors.name}</div>
+                            <div>{errors.select}</div>
+                            <div>{errors.special}</div>
+                        </div>
                        <label>Name:
                            <input name='name' value={values.name} onChange={onChange}  type='text' />
                        </label>
@@ -64,14 +70,11 @@ const Form = (props) => {
                        <label>Special Instructions:
                            <input value={values.special} onChange={onChange} name='special' type='text' />
                        </label>
+                       {/* <Link to='/pizza-order'> */}
                        <button disabled={disabled} className="form-btn">
                            Add To Order
                        </button>
-                       <div className='errors'>
-                            <div>{errors.name}</div>
-                            <div>{errors.select}</div>
-                            <div>{errors.special}</div>
-                        </div>
+                       {/* </Link> */}
                    </form> 
                 </section>
             </div>
